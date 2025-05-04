@@ -2,12 +2,12 @@
 AZure AI Agent tool CodeInterpreter can generate code, run code and output the result per user prompt. However, the accessibility and persistance of the results are challenge. Here we show how to leverage the last_msg annotation part to identify the file_id and full name of the file, therefore we can persist the file with the right extension to Azure blob (or any file service) for further consumption.
 
 ## Key points
--- Prompt engineering
+- Prompt engineering
 We add a sentence at the end of user prompt:
 ~~~
 user_message = request.message + " Save the result to a file."
 ~~~
--- Parsing the annotation
+- Parsing the annotation
 ~~~
 # Access the attributes of the annotation directly
                     try:
@@ -29,10 +29,10 @@ user_message = request.message + " Save the result to a file."
                     file_id = annotation_dict["file_path"]
                     print(f"File name: {file_name}, File ID: {file_id}")
 ~~~
--- Save the file locally
+- Save the file locally
 project_client.agents.save_file(file_id=file_id, file_name=file_name)
                     print(f"Saved the file to: {file_name}") 
--- Push the file to blob
+- Push the file to blob
 ~~~
 # save the newly created file
                     from azure.storage.blob import BlobServiceClient
