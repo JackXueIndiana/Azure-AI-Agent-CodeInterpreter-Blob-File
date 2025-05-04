@@ -30,8 +30,10 @@ user_message = request.message + " Save the result to a file."
                     print(f"File name: {file_name}, File ID: {file_id}")
 ~~~
 - Save the file locally
+~~~
 project_client.agents.save_file(file_id=file_id, file_name=file_name)
-                    print(f"Saved the file to: {file_name}") 
+                    print(f"Saved the file to: {file_name}")
+~~~
 - Push the file to blob
 ~~~
 # save the newly created file
